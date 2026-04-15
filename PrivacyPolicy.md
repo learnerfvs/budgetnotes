@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last Updated:** February 26, 2026  
+**Last Updated:** April 15, 2026  
 **App Name:** BudgetNotes  
 **App ID:** com.budget.notes  
 **Developed by:** FenilVS
@@ -18,7 +18,7 @@
 
 Welcome to BudgetNotes. This Privacy Policy explains how BudgetNotes handles your data and protects your privacy when using it. 
 
-BudgetNotes is designed to operate offline. User-generated data remains on your device and is not intentionally transmitted to external servers, except for license verification.
+BudgetNotes is designed to operate primarily offline. User-generated data remains on your device by default and is not intentionally transmitted to external servers, except for license verification and optional Dropbox sync (Pro feature).
 
 ---
 
@@ -26,23 +26,25 @@ BudgetNotes is designed to operate offline. User-generated data remains on your 
 
 ### 2.1. Data Stored Locally on Your Device
 
-BudgetNotes stores the following data **locally on your device only**:
+BudgetNotes stores the following data **locally on your device's IndexedDB**:
 
 - **Budget Information:** Section budgets, note budgets, expense items, and savings calculations
 - **User-Generated Content:** Note titles, note content, and expense entries
 - **App Settings:** Currency preferences, date format, display modes, and visual preferences
 - **Usage History:** Note title autocomplete history (to provide suggestions)
 - **Section Data:** Section titles, colors, period types, and ordering
+- **Dues Data:** Lent, Borrowed and its people/institutions and transactions.
 
-All user-generated data is stored locally in your device’s IndexedDB and is not intentionally transmitted to external servers.
+All user-generated data is stored locally in your device’s IndexedDB and is not intentionally transmitted to external servers by default. If you enable Dropbox sync (Pro feature), your data is encrypted and transmitted to Dropbox's servers for synchronization purposes only.
 
 ### 2.2. License Verification Data
 
-The app does not intentionally transmit user data except as described in this policy.:
+The app does not intentionally transmit user data except as described in this policy.
 
-- **License Key Verification:** When you purchase the Pro version, the app verifies your license key with Google Play Billing API and RevenueCat stores this information for future authentication purposes. 
-- Google Play Billing and RevenueCat may process transaction-related information necessary to validate purchases. Such processing is governed by their respective privacy policies.
-- [Google Privacy Policy](https://policies.google.com/privacy?hl=en-US), [RevenueCat Privacy Policy](https://www.revenuecat.com/privacy/)
+- **License Key Verification:** When you purchase the Pro version, the app verifies your license key with Google Play Billing API and RevenueCat stores this information for future authentication purposes.
+- **Optional Dropbox Sync (Pro Feature):** If you enable Dropbox sync, encrypted budget data is transmitted to Dropbox API for synchronization across your devices.
+- Google Play Billing, RevenueCat, and Dropbox may process transaction-related information necessary to validate purchases and provide sync services. Such processing is governed by their respective privacy policies.
+- [Google Privacy Policy](https://policies.google.com/privacy?hl=en-US), [RevenueCat Privacy Policy](https://www.revenuecat.com/privacy/), [Dropbox Privacy Policy](https://www.dropbox.com/privacy)
 ---
 
 ## 3. How We Use Your Data
@@ -65,7 +67,7 @@ License verification is used **solely for**:
 - Ensuring you have access to premium features
 - Preventing unauthorized use of paid features
 
-The app is designed to store data locally on your device and does not intentionally transmit user-generated content to external servers.
+The app is designed to store data locally on your device and does not intentionally transmit user-generated content to external servers, except when Dropbox sync is enabled (Pro feature).
 
 ---
 
@@ -77,8 +79,9 @@ BudgetNotes is built with an **offline-first architecture**:
 
 - ✅ All data is stored locally in IndexedDB (browser-native database)
 - ✅ Data is stored using local browser-based storage mechanisms (IndexedDB) within the app environment.
-- ✅ No cloud storage or external servers are used
-- ✅ No data synchronization with any service
+- ✅ No cloud storage or external servers are used by default
+- ✅ No data synchronization with any service by default
+- ⚠️ **Optional Dropbox sync** (Pro feature): Encrypted data can be synchronized across devices if explicitly enabled by user
 - ✅ No third-party analytics or tracking services
 - ✅ No data collection for marketing purposes
 - ✅ The app does not use crash reporting or error tracking services.
@@ -105,6 +108,23 @@ BudgetNotes offers optional backup encryption:
 
 ---
 
+### 4.4. Cloud Sync (Optional - Pro Feature)
+
+BudgetNotes offers optional Dropbox cloud sync (Pro feature):
+
+- **Opt-in Only:** Sync is disabled by default and requires explicit user activation
+- **Encrypted Transmission:** All data is encrypted using AES-256-GCM encryption before transmission to Dropbox
+- **Dropbox Storage:** Data is stored in your personal Dropbox account using Dropbox API
+- **User Control:** You can disable sync at any time, which stops all cloud transmission
+- **No Server Access:** We do not have access to your Dropbox data or encryption keys
+- **Multi-Device:** Sync works across multiple devices linked to the same Dropbox account
+
+**⚠️ Important: Dropbox sync is NOT end-to-end encrypted.** While your data is encrypted before upload, Dropbox could theoretically access your data if compelled by legal requests or if they choose to decrypt it. For 100% private storage, use password-encrypted local backups instead.
+
+**Local backups remain the primary backup method. Dropbox sync is for convenience only.**
+
+---
+
 ## 5. Data Sharing and Third Parties
 
 ### 5.1. No Third-Party Data Transfers
@@ -115,8 +135,8 @@ BudgetNotes offers optional backup encryption:
 - ❌ No analytics providers
 - ❌ No data brokers
 - ❌ No social media platforms
-- ❌ No cloud storage services
-- ❌ No third-party APIs (except Google Play Billing for license verification)
+- ⚠️ No cloud storage services by default (optional Dropbox sync available for Pro users)
+- ❌ No third-party APIs (except Google Play Billing for license verification and Dropbox API for optional sync)
 
 ### 5.2. No Ads
 
@@ -134,6 +154,34 @@ The third-party services we use are **Google Play Billing** and **RevenueCat**:
 - Used for Pro version license verification
 - BudgetNotes does not intentionally collect personal data such as name, email address, phone number, or location.
 - Google's privacy policy applies to license verification transactions.
+
+### 5.4. Dropbox API (Optional - Pro Feature)
+
+If you enable Dropbox sync (Pro feature), we use **Dropbox API**:
+
+- Used **only** when you explicitly enable sync in settings
+- Transmits **encrypted** budget data to your personal Dropbox account
+- We do not have access to your Dropbox credentials or data
+- Dropbox's privacy policy applies to data stored on their servers
+- You can disable sync at any time to stop all Dropbox API usage
+- [Dropbox Privacy Policy](https://www.dropbox.com/privacy)
+
+#### Encryption Details
+
+Your data is encrypted using **AES-256-GCM encryption** (the same standard used by financial institutions) before being uploaded to Dropbox.
+
+**What This Protects Against:**
+- ✅ Network snooping during upload/download - Your data is encrypted during transit
+- ✅ Casual access to your Dropbox account - Your data remains encrypted on Dropbox servers
+- ✅ Data breaches at Dropbox - Your information stays encrypted even if Dropbox is hacked
+
+**What This Doesn't Protect Against:**
+- ⚠️ **Legal requests to Dropbox** - Warrants, subpoenas, or court orders could compel Dropbox to provide your data
+- ⚠️ **Dropbox's internal access** - Dropbox could theoretically decrypt your data if they choose to take the steps to do so
+
+#### Alternative for 100% Private Storage
+
+For stronger security, go to **Settings → Security** and enable **"Encrypt backups with password"**. Then create a **local backup**. Your backup file will be encrypted with your password, and only you can open it. You can store this backup anywhere - even on Dropbox - and it will remain 100% private.
 
 ---
 
@@ -164,7 +212,7 @@ You can delete your data at any time by:
 
 BudgetNotes is a general-purpose budgeting application and is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13.
 
-Since the app operates entirely offline and does not collect personal information, it is safe for users of all ages.
+Since the app operates primarily offline and does not collect personal information, it is safe for users of all ages. Optional Dropbox sync (Pro feature) requires internet connection.
 
 ---
 
@@ -212,10 +260,11 @@ BudgetNotes intentionally uses the internet for:
 
 - License key verification (Pro version)
 - App updates (through Google Play Store)
+- **Dropbox sync (Pro feature, optional):** When enabled, encrypted data is synchronized with Dropbox servers
 
 ### 9.2. Offline Functionality
 
-BudgetNotes works **completely offline** for:
+BudgetNotes works **completely offline** for core features (unless Dropbox sync is enabled):
 
 - Creating and editing notes
 - Setting budgets and tracking expenses
@@ -236,7 +285,7 @@ We implement reasonable security measures to protect your data:
 - **IndexedDB:** Uses browser-native secure database
 - **Optional Encryption:** Backup files can be password-protected
 - **External Transmission:** The app is designed to store data locally on your device and does not intentionally transmit user-generated content to external servers.
-- **No Remote Access:** No remote access or cloud synchronization
+- **No Remote Access:** No remote access or cloud synchronization, except optional Dropbox sync (Pro feature)
 
 **However, please note:**
 
@@ -263,7 +312,7 @@ If you have questions about this Privacy Policy or how we handle your data, plea
 |--------|--------|
 | **Offline-First** | ✅ App works completely offline |
 | **Local Storage** | ✅ All data stored on device only |
-| **Cloud Storage** | ❌ No cloud storage or sync |
+| **Cloud Storage** | ⚠️ Optional Dropbox sync (Pro feature only) |
 | **Data Sharing** | ❌ No third-party data transfers |
 | **Ads** | ❌ No advertisements |
 | **Analytics** | ❌ No tracking or analytics |
